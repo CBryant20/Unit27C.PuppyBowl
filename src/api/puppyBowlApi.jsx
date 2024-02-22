@@ -7,7 +7,12 @@ const api = createAPI({
   baseQuery: fetchBaseQuery({
     baseURL: API_URL,
   }),
-  endpoint: () => ({}),
+  endpoint: (builder) => ({
+    getPlayers: builder.query({
+      query: () => "/players",
+    }),
+  }),
+  tagTypes: ["Players"],
 });
 
 export default api;
