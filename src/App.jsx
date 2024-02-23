@@ -5,8 +5,6 @@ import {
   useDeletePlayerMutation,
 } from "./features/players/Players";
 
-import "./App.css";
-
 function App() {
   const { data: players, isLoading } = useGetPlayersQuery();
 }
