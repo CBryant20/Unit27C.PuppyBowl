@@ -1,11 +1,31 @@
+import {
+  useAddPlayerMutation,
+  useGetPlayersQuery,
+  useGetPlayersById,
+  useDeletePlayerMutation,
+} from "./features/players/Players";
+
 import "./App.css";
 
 function App() {
-  return (
-    <>
-      <div></div>
-    </>
-  );
+  const { data: players, isLoading } = useGetPlayersQuery();
 }
+
+return (
+  <>
+    <ul>
+      {isLoading ? (
+        <li>Loading...</li>
+      ) : (
+        players.data.map((player) => (
+          <li key={player.id}>
+            <h2>{player.name}</h2>
+            <p>{player.description}</p>
+          </li>
+        ))
+      )}
+    </ul>
+  </>
+);
 
 export default App;
