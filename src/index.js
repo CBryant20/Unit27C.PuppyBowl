@@ -1,16 +1,18 @@
 import { useGetPlayersQuery } from "./features/players/Players";
 
 function Puppies() {
-  const { data: players, isLoading } = useGetPlayersQuery();
+  const { data, isLoading } = useGetPlayersQuery();
 
   return (
     <>
       <div className='App'>
+        <h1>Puppy Bowl 2024</h1>
+        <p>Here are the players:</p>
         <ul>
           {isLoading ? (
             <li>Loading...</li>
           ) : (
-            players.data.map((player) => (
+            data.data.players.map((player) => (
               <li key={player.id}>
                 <h2>{player.name}</h2>
                 <p>{player.description}</p>

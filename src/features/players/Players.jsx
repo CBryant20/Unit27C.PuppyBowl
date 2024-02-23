@@ -5,7 +5,7 @@ const playersAPI = api.injectEndpoints({
     getPlayers: builder.query({
       query: () => "/players",
       provideTags: ["Players"],
-      transformResponse: (response) => response.data.players,
+      // transformResponse: (response) => response.data.players,
     }),
     ///// Added for fun!! Will come back to this /////////
     // getPlayersById: builder.query({
