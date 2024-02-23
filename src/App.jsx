@@ -1,29 +1,12 @@
-import {
-  useAddPlayerMutation,
-  useGetPlayersQuery,
-  useGetPlayersById,
-  useDeletePlayerMutation,
-} from "./features/players/Players";
+import Puppies from "./index";
+import "./App.css";
 
 function App() {
-  const { data: players, isLoading } = useGetPlayersQuery();
+  return (
+    <>
+      <Puppies />
+    </>
+  );
 }
-
-return (
-  <>
-    <ul>
-      {isLoading ? (
-        <li>Loading...</li>
-      ) : (
-        players.data.map((player) => (
-          <li key={player.id}>
-            <h2>{player.name}</h2>
-            <p>{player.description}</p>
-          </li>
-        ))
-      )}
-    </ul>
-  </>
-);
 
 export default App;

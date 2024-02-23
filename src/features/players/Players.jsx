@@ -5,32 +5,34 @@ const playersAPI = api.injectEndpoints({
     getPlayers: builder.query({
       query: () => "/players",
       provideTags: ["Players"],
+      transformResponse: (response) => response.data.players,
     }),
-    getPlayersById: builder.query({
-      query: (id) => "/players/" + id,
-      provideTags: ["Players"],
-    }),
-    addPlayer: builder.mutation({
-      query: (recipe) => ({
-        url: "/players",
-        method: "POST",
-        body: playersAPI,
-      }),
-      invalidatesTags: ["Players"],
-    }),
-    deletePlayer: builder.mutation({
-      query: (id) => ({
-        url: "/players" + id,
-        method: "DELETE",
-      }),
-      invalidatesTags: ["Players"],
-    }),
+    ///// Added for fun!! Will come back to this /////////
+    // getPlayersById: builder.query({
+    //   query: (id) => "/players/" + id,
+    //   provideTags: ["Players"],
+    // }),
+    // addPlayer: builder.mutation({
+    //   query: (player) => ({
+    //     url: "/players",
+    //     method: "POST",
+    //     body: player,
+    //   }),
+    //   invalidatesTags: ["Players"],
+    // }),
+    // deletePlayer: builder.mutation({
+    //   query: (id) => ({
+    //     url: "/players" + id,
+    //     method: "DELETE",
+    //   }),
+    //   invalidatesTags: ["Players"],
+    // }),
   }),
 });
 
 export const {
   useGetPlayersQuery,
-  useGetPlayersById,
-  useAddPlayerMutation,
-  useDeletePlayerMutation,
+  //   useGetPlayersById,
+  //   useAddPlayerMutation,
+  //   useDeletePlayerMutation,
 } = playersAPI;
